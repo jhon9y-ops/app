@@ -1,0 +1,6 @@
+[
+    {
+        "merged": "com.p2p.client.client-android-merged_res-31:/xml_accessibility_config.xml.flat",
+        "source": "com.p2p.client.client-android-main-33:/xml/accessibility_config.xml"
+    }
+]

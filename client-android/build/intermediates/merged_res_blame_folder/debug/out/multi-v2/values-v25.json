@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.p2p.client.client-android-mergeDebugResources-29:/values-v25/values-v25.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Jhony\\.gradle\\caches\\transforms-4\\43ed9295dca1b9d3e5677ed23d308868\\transformed\\appcompat-1.6.1\\res\\values-v25\\values-v25.xml",
+                    "from": {
+                        "startLines": "2,3,4,6",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,126,209,308",
+                        "endLines": "2,3,5,7",
+                        "endColumns": "70,82,12,12",
+                        "endOffsets": "121,204,303,414"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -7,7 +7,9 @@ WORKDIR /home/gradle/src
 RUN sed -i 's/\r$//' gradlew && chmod +x gradlew
 
 # Compila o Fat JAR do servidor Ktor sem rodar os testes
-RUN ./gradlew :server:buildFatJar --no-daemon -x test
+# Compila exibindo todos os erros detalhados de código
+RUN ./gradlew :server:buildFatJar --no-daemon -x test --stacktrace --info
+
 
 # Estágio 2: Imagem final leve para execução
 FROM eclipse-temurin:17-jre-alpine

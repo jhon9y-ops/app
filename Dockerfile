@@ -3,13 +3,11 @@ FROM gradle:8.7-jdk17 AS build
 COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
 
-# Dá permissão ao script
-RUN chmod +x gradlew
+# Dá permissão ao script e corrige quebras de linha do Windows
+RUN sed -i 's/\r$//' gradlew && chmod +x gradlew
 
-# Compila o Fat JAR do servidor Ktor sem rodar os testes para economizar memória
-# Compila limitando o consumo máximo de memória da JVM
-RUN ./gradlew :server:buildFatJar --no-daemon -x test -Dorg.gradle.jvmargs="-Xmx384m -XX:MaxMetaspaceSize=128m"
-
+# Compila o Fat JAR do servidor Ktor sem rodar os testes
+RUN ./gradlew :server:buildFatJar --no-daemon -x test
 
 # Estágio 2: Imagem final leve para execução
 FROM eclipse-temurin:17-jre-alpine

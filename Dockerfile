@@ -7,7 +7,9 @@ WORKDIR /home/gradle/src
 RUN chmod +x gradlew
 
 # Compila o Fat JAR do servidor Ktor sem rodar os testes para economizar memória
-RUN ./gradlew :server:buildFatJar --no-daemon -x test
+# Compila limitando o consumo máximo de memória da JVM
+RUN ./gradlew :server:buildFatJar --no-daemon -x test -Dorg.gradle.jvmargs="-Xmx384m -XX:MaxMetaspaceSize=128m"
+
 
 # Estágio 2: Imagem final leve para execução
 FROM eclipse-temurin:17-jre-alpine

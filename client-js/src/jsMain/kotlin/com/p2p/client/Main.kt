@@ -112,7 +112,7 @@ fun initPeerConnection() {
 
 fun connectWebSocket(roomId: String) {
     val protocol = if (window.location.protocol == "https:") "wss:" else "ws:"
-    val host = window.location.host.ifBlank { "localhost:8080" }
+    val host = window.location.host.ifBlank { "app-production-424d.up.railway.app" }
 
     socket = WebSocket("$protocol//$host/rtc/$roomId")
 

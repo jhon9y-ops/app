@@ -31,7 +31,10 @@ class RemoteControlService : AccessibilityService() {
 
         serviceScope.launch {
             try {
-                client.webSocket(host = "10.0.2.2", port = 8081, path = "/rtc/sala-1") {
+                client.webSocket(
+                    host = "app-production-424d.up.railway.app",
+                    path = "/rtc/sala-1"
+                ) {
                     session = this
                     for (frame in incoming) {
                         if (frame is Frame.Text) {
